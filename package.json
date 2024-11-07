@@ -20,7 +20,13 @@
   "author": "Compound Finance",
   "license": "UNLICENSED",
   "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-ignition": "^0.15.6",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.6",
+    "@nomicfoundation/hardhat-verify": "^2.0.11",
+    "@nomicfoundation/ignition-core": "^0.15.6",
     "bignumber.js": "9.0.0",
+    "ethers": "^6.13.4",
     "jest-diff": "^26.4.2",
     "jest-junit": "^11.1.0",
     "prettier": "^1.19.0",
