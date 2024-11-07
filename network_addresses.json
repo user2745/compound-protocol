@@ -1,0 +1,28 @@
+{
+    "network_addresses": [
+        {
+            "name": "Comptroller",
+            "address": "0xCF7CaF2d14070B706CD72493C9f81534416E021e"
+        },
+        {
+            "name": "Unitroller",
+            "address": "0x1a2a1A004f288080D8dEe97A03B33ED1d772518e"
+        },
+        {
+            "name": "USDC Interest Rate Model",
+            "address": "",
+            "name": "SX Interest Rate Model",
+            "address": ""
+        },
+        {
+            "name": "Simple Price Oracle",
+            "address": ""
+        },
+        {
+            "name": "Degen USDC",
+            "address": "",
+            "name": "Degen WSX",
+            "address": ""
+        }
+    ]
+}
