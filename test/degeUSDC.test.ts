@@ -5,6 +5,8 @@ describe('USDC cToken', async () => {
     
         let cToken: any;
         let USDC: any;
+
+        const USDC_TOKEN_ADDRESS = "0x2D4e10Ee64CCF407C7F765B363348f7F62D2E06e";
     
         const enableAmount = ethers.utils.parseUnits("1000", 6); // USDC uses 6 decimals
         const mintAmount = ethers.utils.parseUnits("1000", 6); // USDC uses 6 decimals
