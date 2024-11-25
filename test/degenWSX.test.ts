@@ -32,7 +32,7 @@ describe('WSX cToken', async () => {
         // );
 
         it('should retrieve the WSX Token', async () => {
-            cToken = await ethers.getContractAt('ERC20', DEGEN_WSX_ADDRESS);
+            cToken = await ethers.getContractAt('CErc20Immutable', DEGEN_WSX_ADDRESS);
             expect(cToken.address).to.equal(DEGEN_WSX_ADDRESS);
         }
         );
@@ -51,8 +51,10 @@ describe('WSX cToken', async () => {
             const signer = await ethers.getSigner(); // Get the signer object
             const signerAddress = await signer.getAddress(); // Get the address of the signer
         
-            await WSX.approve(DEGEN_WSX_ADDRESS, "1000000000000000000000");
-        
+            const txn = await WSX.approve(DEGEN_WSX_ADDRESS, "1000000000000000000000");
+            await txn.wait();
+
+
             const allowance = await WSX.allowance(signerAddress, DEGEN_WSX_ADDRESS);
             
             // Compare the values using .toString() or .eq()
@@ -62,6 +64,28 @@ describe('WSX cToken', async () => {
         });
 
 
+        it('should mint the WSX cToken', async () => {
+            const signer = await ethers.getSigner(); // Get the signer object
+            const signerAddress = await signer.getAddress(); // Get the address of the signer
+        
+            const txn = await cToken.mint(mintAmount);
+            await txn.wait();
+        
+            const balance = await cToken.balanceOf(signerAddress);
+            expect(balance.toString()).to.equal(mintAmount.toString());
+        });
+
+        it('should withdraw the WSX cToken', async () => {      
+            const signer = await ethers.getSigner(); // Get the signer object
+            const signerAddress = await signer.getAddress(); // Get the address of the signer
+        
+            const txn = await cToken.redeemUnderlying(withdrawAmount);
+            await txn.wait();
+        
+            const balance = await cToken.balanceOf(signerAddress);
+            expect(balance.toString()).to.equal(withdrawAmount.toString());
+        }
+    );
         
         
     }

@@ -41,7 +41,8 @@ describe('USDC cToken', async () => {
             const signer = await ethers.getSigner(); // Get the signer object
             const signerAddress = await signer.getAddress(); // Get the address of the signer
 
-            await USDC.approve(DEGEN_USDC_ADDRESS, "1000000000");
+            const txn = await USDC.approve(DEGEN_USDC_ADDRESS, "1000000000");
+            await txn.wait();
 
             const allowance = await USDC.allowance(signerAddress, DEGEN_USDC_ADDRESS);
 
